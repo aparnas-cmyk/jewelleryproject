@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> Display User Register</h1>
+<table>
+    <thead>
+    <tr>
+        <th> Full_Name</th>
+        <th> password</th>
+        <th> confirm_password</th>
+        <th> Email</th>
+        <th> number</th>
+    </tr>
+    {% for d in data %}
+    <tr>
+        <td>{{d.Full_Name}}</td>
+        <td>{{d.password}}</td>
+        <td>{{d.confirm_password}}</td>
+        <td>{{d.Email}}</td>
+        <td>{{d.number}}</td>
+        <td><a href="{% url 'delete_register' user_id=d.id %} "><button>delete</button></a></td>
+    </tr>
+    {% endfor %}
+    </thead>
+</table>
+</body>
+</html>
+{% endblock %}
+
